@@ -7,12 +7,10 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter packages get
-      - name: Verify assets and fonts
+      - name: Verify configuration
+        script: flutter pub get
+      - name: Build App Bundle / Test
         script: |
-          echo "Checking assets and configuration..."
-          flutter pub get
-      - name: Build iOS App
-        script: |
-          flutter build ios --release --no-codesign
-    artifacts:
-      - build/ios/iphoneos/*.app
+          flutter build ios --simulator --release
+artifacts:
+  - build/ios/iphonesimulator/*.app
