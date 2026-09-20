@@ -11,6 +11,6 @@ workflows:
         script: flutter pub get
       - name: Build App Bundle / Test
         script: |
-          flutter build ios --simulator --release
+          flutter build ios --simulator --debug
 artifacts:
   - build/ios/iphonesimulator/*.app
